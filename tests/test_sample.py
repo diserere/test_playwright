@@ -1,9 +1,11 @@
-from icecream import ic
+# pylint: disable = unused-import
+
 from time import sleep
 
 import logging
 
 from assertpy import assert_that, soft_assertions
+from icecream import ic
 from playwright.sync_api import Page, expect
 
 import allure
