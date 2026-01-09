@@ -4,6 +4,10 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+permissions:
+  checks: write
+  contents: write
+  pull-requests: write
 jobs:
   test:
     timeout-minutes: 60
@@ -27,3 +31,13 @@ jobs:
       with:
         name: playwright-traces
         path: test-results/
+    - name: Generate and publish Allure Report
+      uses: allure-framework/allure-report@v1.3.1 # Use the official action
+      with:
+        report-directory: allure-report # The output directory for the HTML report
+        results-directory: allure-results # The input directory with raw results
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        # Set 'publish-pages: true' to automatically publish to GitHub Pages
+        publish-pages: true
+        # Set 'publish-broken-tests-issue: true' to create issues for broken tests (optional)
+        # publish-broken-tests-issue: true
