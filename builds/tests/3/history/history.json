@@ -1,0 +1,1 @@
+{"78e6616862bf41b992e1003636d57d84":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"e046f00ba7a610ed","reportUrl":"https://diserere.github.io/test_playwright/builds/tests/3/index.html#testresult/e046f00ba7a610ed","status":"passed","time":{"start":1767995081940,"stop":1767995081940,"duration":0}}]}}
