@@ -80,28 +80,34 @@ Once everything is set up, you can run the tests using:
 pytest
 ```
 
-Optional: Run with verbose output:
+Optional: 
+- Run with verbose output:
 ```bash
 pytest -v
 ```
-
-Run a specific test file:
+- Run a specific test file:
 ```bash
 pytest tests/test_example.py
 ```
-
-Run tests in headed mode (visible browser):
+- Run tests in headed mode (visible browser):
 ```bash
 pytest --headed
 ```
-
-Run tests on a specific browser:
+- Run tests on a specific browser:
 ```bash
 pytest --browser chromium
 pytest --browser firefox
 pytest --browser webkit
 ```
 
+
+## Tests Run in Github Actions
+
+Each pull request triggers tests run by Github Actions with automatic Allure report generation, see `.github/workflows/playwright.yml`.  
+Reports are published to Github Pages, link is awailable in pull reqiest's `Checks` page.  
+Also last report is available here:  
+
+- [Allure report](https://diserere.github.io/test_playwright/builds/tests/)
 
 ## Project Structure
 ```
@@ -129,7 +135,8 @@ test_playwright/
 
 
 ## Learning Resources
-[Playwright Python Documentation](https://playwright.dev/python/)
+
+- [Playwright Python Documentation](https://playwright.dev/python/)
 
 
 ## Contributing
