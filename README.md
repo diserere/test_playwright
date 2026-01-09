@@ -46,11 +46,11 @@ Follow these steps to set up the project in a virtual environment:
      venv\Scripts\activate
      ```
 
-   > [!WARNING]
-   > All the following steps should be performed into virtual environment!
+ > [!WARNING]
+ > All the following steps should be performed into virtual environment!
 
 
-4. Upgrade pip (recommended)
+1. Upgrade pip (recommended)
 
    ```bash
    pip install --upgrade pip
