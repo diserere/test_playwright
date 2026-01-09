@@ -38,7 +38,7 @@ jobs:
         name: playwright-traces
         path: test-results/
     - name: Generate Allure test report
-      uses: andgineer/allure-report@v3.6
+      uses: andgineer/allure-report@v3.7
       id: allure-report
       if: always()
       with:
