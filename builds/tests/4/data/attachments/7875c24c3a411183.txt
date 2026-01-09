@@ -1,0 +1,2 @@
+INFO     root:test_sample.py:30 Sample step 1
+INFO     root:test_sample.py:33 Sample step 2
