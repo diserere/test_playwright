@@ -103,6 +103,14 @@ pytest --browser webkit
 ```
 
 
+## Tests Run in Github Actions
+
+Each pull request triggers run for tests by Github Actions with automatic Allure report generation, see `github/workflows/playwright.yml`.  
+Reports are published to Github Pages, link is awailable in pull reqiest's `Checks` page.  
+Also last report is available here:  
+
+- [Allure report](https://diserere.github.io/test_playwright/builds/tests/)
+
 ## Project Structure
 ```
 test_playwright/  
