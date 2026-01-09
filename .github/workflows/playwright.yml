@@ -24,20 +24,32 @@ jobs:
         pip install -r requirements.txt
     - name: Ensure browsers are installed
       run: python -m playwright install --with-deps
+    - name: Checkout GitHub Pages with previous Allure reports
+      uses: actions/checkout@v4
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages-dir
     - name: Run tests
-      run: pytest --tracing=retain-on-failure
+      run: pytest --tracing=retain-on-failure tests/
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
         name: playwright-traces
         path: test-results/
-    - name: Generate and publish Allure Report
-      uses: allure-framework/allure-report@v1.3.1 # Use the official action
+    - name: Generate Allure test report
+      uses: andgineer/allure-report@v3.6
+      id: allure-report
+      if: always()
       with:
-        report-directory: allure-report # The output directory for the HTML report
-        results-directory: allure-results # The input directory with raw results
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        # Set 'publish-pages: true' to automatically publish to GitHub Pages
-        publish-pages: true
-        # Set 'publish-broken-tests-issue: true' to create issues for broken tests (optional)
-        # publish-broken-tests-issue: true
+        allure-results: allure-results
+        website: gh-pages-dir
+        reports-site-path: builds/tests
+    - name: Publish Allure test report
+      uses: peaceiris/actions-gh-pages@v3
+      if: ${{ always() && (steps.allure-report.outcome == 'success') }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ${{ steps.allure-report.outputs.reports-site }}
+        destination_dir: ${{ steps.allure-report.outputs.reports-site-path }}
