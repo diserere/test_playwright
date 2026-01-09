@@ -1,0 +1,6 @@
+allure-pytest
+assertpy
+flake8
+icecream
+pytest
+pytest-playwright

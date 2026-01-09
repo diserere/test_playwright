@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>  
+    <head>
+        <title>Sample page</title>
+    </head>
+    <body>
+        <h1>Main Header</h1>
+        This is a sample page with some elements.
+        <h2>Some H2 header</h2>
+        <p>
+            Samples of select elements:
+        </p>
+        <p>
+            <label>- Simple select:</label>
+            <select id="simple_select_sample">
+                <option value="value1">First value</option>
+                <option value="value2">Second value</option>
+            </select>
+        </p>
+        <p>
+            <label>- Leveled select:</label>
+            <select id="leveled_select_sample">
+                <option value="">Choose option</option>
+                <optgroup label="Main">
+                    <option value="value1">First value</option>
+                    <option value="value2">Second value</option>
+                </optgroup>
+                <optgroup label="Additional">
+                    <option value="value_add_1">Additional first value</option>
+                    <option value="value_add_2">Additional second value</option>
+                    <option value="value_add_3" disabled>Additional three value</option>
+                </optgroup>
+            </select>
+        </p>
+    </body>
+</html>
