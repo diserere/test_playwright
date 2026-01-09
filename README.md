@@ -39,9 +39,9 @@ Follow these steps to set up the project in a virtual environment:
 
  > [!IMPORTANT]
  > All the following steps should be performed into virtual environment!  
- > You should see environment prefix in parentheses at start of your command line:
+ > You should see environment prefix in parentheses at start of your command line like this:
  > ```bash
- > (venv) loginname@machinename: ~/path/to/current/dir$
+ > (venv) loginname@machinename:~/path/to/current/dir$
  > ```
 
 - Upgrade pip (recommended)
