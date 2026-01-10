@@ -42,28 +42,39 @@ class TestSelectOption:
             page.locator("xpath=(//*[@class='btn flex-auto'])[2]").click()
         with allure.step("Wait for results list in results page"):
             page.locator("xpath=//div[@data-testid='results-list']").wait_for()
-            logging.info("Search results page url: %s", page.url)
-        with soft_assertions():     # pyright: ignore[reportGeneralTypeIssues]
-            with allure.step("Find elements with stars rating for each result on results page"):
-                stars_locator = page.locator("xpath=//div[@data-testid='results-list']//ul//a")
-                stars_list = stars_locator.all()
-                assert_that(stars_list, "Stars elements list should not be empty").is_not_empty()
-                with allure.step(f"Check {len(stars_list)} found star elements matches filter '{stars}'"):
-                    for star in stars_list:
-                        assert_that(star.get_attribute("aria-label"), "Repo stars value").contains(stars)
-            with allure.step("Find elements with repo language for each result on results page"):
-                lang_list = page.query_selector_all(
-                    # 'xpath=//ul[@class="Box-sc-62in7e-0 dmuROe"]//li[1]',
-                    'xpath=//div[@data-testid="results-list"]/div/div/div[1]/ul/li[1]/span',
-                )
-                assert_that(lang_list, "Language elements list should not be empty").is_not_empty()
-                with allure.step(f"Check {len(lang_list)} found repo language elements matches filter '{language}'"):
-                    for lang in lang_list:
-                        assert_that(lang.inner_text(), "Repo language value").contains(language)
-        with allure.step("Make screenshot"):
+        with allure.step("Make screenshot and log current URL"):
             screenshot_bytes = page.screenshot(full_page=True)
             allure.attach(
                 body=screenshot_bytes,
                 name="page_screenshot.png",
                 attachment_type=allure.attachment_type.PNG,
             )
+            logging.info("Search results page url: %s", page.url)
+            allure.attach(
+                body=page.url,
+                name="page_url.txt",
+                attachment_type=allure.attachment_type.TEXT,
+            )
+        with soft_assertions():     # pyright: ignore[reportGeneralTypeIssues]
+            with allure.step("Verify results match filter criteria"):
+                with allure.step("Verify elements with stars rating"):
+                    with allure.step("Find elements for each result on results page"):
+                        stars_list = page.locator(
+                            "xpath=//div[@data-testid='results-list']//ul//a",
+                        ).all()
+                    with allure.step("Check elements list is not empty"):
+                        assert_that(stars_list, "Stars elements list should not be empty").is_not_empty()
+                    with allure.step(f"Check {len(stars_list)} elements matches filter '{stars}'"):
+                        for star in stars_list:
+                            assert_that(star.get_attribute("aria-label"), "Repo stars value").contains(stars)
+                with allure.step("Verify elements with repo language"):
+                    with allure.step("Find elements for each result on results page"):
+                        lang_list = page.query_selector_all(
+                            # 'xpath=//ul[@class="Box-sc-62in7e-0 dmuROe"]//li[1]',
+                            'xpath=//div[@data-testid="results-list"]/div/div/div[1]/ul/li[1]/span',
+                        )
+                    with allure.step("Check elements list is not empty"):
+                        assert_that(lang_list, "Language elements list should not be empty").is_not_empty()
+                    with allure.step(f"Check {len(lang_list)} elements matches filter '{language}'"):
+                        for lang in lang_list:
+                            assert_that(lang.inner_text(), "Repo language value").contains(language)
