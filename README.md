@@ -18,58 +18,45 @@ Before you begin, ensure you have the following installed:
 ## Installation
 
 Follow these steps to set up the project in a virtual environment:
-
-1. Clone the repository (optional)
-
+- Clone the repository (optional)
    ```bash
    git clone https://github.com/diserere/test_playwright.git
    cd test_playwright
    ```
-
-2. Create a virtual environment
-
+- Create a virtual environment
    ```bash
    python -m venv venv
    ```
-
-3. Activate the virtual environment
-
+- Activate the virtual environment
    - On macOS/Linux:
-
      ```bash
      source venv/bin/activate
      ```
-
    - On Windows:
-
      ```cmd
      venv\Scripts\activate
      ```
 
-   > [!WARNING]
-   > All the following steps should be performed into virtual environment!
+ > [!IMPORTANT]
+ > All the following steps should be performed into virtual environment!  
+ > You should see environment prefix in parentheses at start of your command line like this:
+ > ```bash
+ > (venv) loginname@machinename:~/path/to/current/dir$
+ > ```
 
-
-4. Upgrade pip (recommended)
-
+- Upgrade pip (recommended)
    ```bash
    pip install --upgrade pip
    ```
-
-
-5. Install dependencies
-
+- Install dependencies
    ```bash
    pip install -r requirements.txt
    ```
-
-6. Install Playwright browser binaries
-
+- Install Playwright browser binaries
    ```bash
    playwright install
    ```
-
-   This command installs the required browsers (Chromium, Firefox, WebKit) used by Playwright.
+   > This command installs the required browsers (Chromium, Firefox, WebKit) used by Playwright.
 
 
 ## Running Tests
@@ -149,3 +136,20 @@ This project is open-source and available for personal and educational use.
 ---
 
 Happy testing! 
+
+<!-- ## Test Markdown
+
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action. -->
