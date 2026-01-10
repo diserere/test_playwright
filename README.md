@@ -1,16 +1,20 @@
-pytest-playwright Tests
+Learning `pytest-playwright` Tests
 ---
 
 This repository contains automated tests written using [pytest](https://docs.pytest.org/) and [Playwright](https://playwright.dev/python/), which I'm developing while learning how to use Playwright in combination with pytest for end-to-end browser testing.
 
 This project is designed to serve as a practical learning resource and a foundation for writing reliable, maintainable web automation tests.
 
+Allure report for last tests run in Github Actions CI is available here:  
+- [Allure report](https://diserere.github.io/test_playwright/builds/tests/)
+
+
 
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
-- **Python 3.8+** (3.12 tested on my environment)
+- **Python 3.8+** (3.13 tested on my environment)
 - **pip** (Python package installer)
 - **git** (optional, for cloning the repository)
 
