@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+        Sample test description.
+
+        Scenario:
+        - sample step 1.
+        - sample step 2.
+        ","1","Sample Test","tests","2026-01-10","passed","2026-01-10","TestSample","test_sample","",""
