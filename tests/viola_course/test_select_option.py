@@ -48,7 +48,7 @@ class TestSelectOption:
                 stars_locator = page.locator("xpath=//div[@data-testid='results-list']//ul//a")
                 stars_list = stars_locator.all()
                 assert_that(stars_list, "Stars elements list should not be empty").is_not_empty()
-                with allure.step(f"Check {len(stars_list)} found star elements value matches filter criteria"):
+                with allure.step(f"Check {len(stars_list)} found star elements matches filter '{stars}'"):
                     for star in stars_list:
                         assert_that(star.get_attribute("aria-label"), "Repo stars value").contains(stars)
             with allure.step("Find elements with repo language for each result on results page"):
@@ -57,7 +57,7 @@ class TestSelectOption:
                     'xpath=//div[@data-testid="results-list"]/div/div/div[1]/ul/li[1]/span',
                 )
                 assert_that(lang_list, "Language elements list should not be empty").is_not_empty()
-                with allure.step(f"Check {len(lang_list)} found repo language elements text matches filter criteria"):
+                with allure.step(f"Check {len(lang_list)} found repo language elements matches filter '{language}'"):
                     for lang in lang_list:
                         assert_that(lang.inner_text(), "Repo language value").contains(language)
         with allure.step("Make screenshot"):
