@@ -1,0 +1,3 @@
+DEBUG    asyncio:selector_events.py:64 Using selector: EpollSelector
+INFO     root:test_select_option.py:52 Search results page url: https://github.com/search?q=stars%3A123+path%3A**%2Frequirements.yml+language%3APython&type=Repositories&ref=advsearch&l=Python&l=
+INFO     root:test_select_option.py:62 Search results found: 10
