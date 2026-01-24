@@ -56,25 +56,31 @@ class TestSelectOption:
                 attachment_type=allure.attachment_type.TEXT,
             )
         with soft_assertions():     # pyright: ignore[reportGeneralTypeIssues]
-            with allure.step("Verify results match filter criteria"):
-                with allure.step("Verify elements with stars rating"):
-                    with allure.step("Find elements for each result on results page"):
-                        stars_list = page.locator(
-                            "xpath=//div[@data-testid='results-list']//ul//a",
-                        ).all()
-                    with allure.step("Check elements list is not empty"):
-                        assert_that(stars_list, "Stars elements list should not be empty").is_not_empty()
-                    with allure.step(f"Check {len(stars_list)} elements matches filter '{stars}'"):
-                        for star in stars_list:
-                            assert_that(star.get_attribute("aria-label"), "Repo stars value").contains(stars)
-                with allure.step("Verify elements with repo language"):
-                    with allure.step("Find elements for each result on results page"):
-                        lang_list = page.query_selector_all(
-                            # 'xpath=//ul[@class="Box-sc-62in7e-0 dmuROe"]//li[1]',
-                            'xpath=//div[@data-testid="results-list"]/div/div/div[1]/ul/li[1]/span',
-                        )
-                    with allure.step("Check elements list is not empty"):
-                        assert_that(lang_list, "Language elements list should not be empty").is_not_empty()
-                    with allure.step(f"Check {len(lang_list)} elements matches filter '{language}'"):
-                        for lang in lang_list:
-                            assert_that(lang.inner_text(), "Repo language value").contains(language)
+            with allure.step("Verify results list is not empty"):
+                results_count = page.locator("xpath=//div[@data-testid='results-list']/div").count()
+                assert_that(results_count,"Results list should not be empty").is_greater_than(0)
+                logging.info("Search results found: %s", results_count)
+                allure.attach(
+                    body=str(results_count),
+                    name="results_count.txt",
+                    attachment_type=allure.attachment_type.TEXT,
+                )
+            with allure.step("Verify elements with stars rating"):
+                with allure.step("Find elements and check its count"):
+                    stars_list = page.locator(
+                        "xpath=//div[@data-testid='results-list']//ul//a",
+                    ).all()
+                    assert_that(stars_list, "Stars elements not match results count").is_length(results_count)
+                with allure.step(f"Check all elements match filter '{stars}'"):
+                    for star in stars_list:
+                        assert_that(star.get_attribute("aria-label"), "Repo stars value").contains(stars)
+            with allure.step("Verify elements with repo language"):
+                with allure.step("Find elements and check its count"):
+                    lang_list = page.query_selector_all(
+                        # 'xpath=//ul[@class="Box-sc-62in7e-0 dmuROe"]//li[1]',
+                        'xpath=//div[@data-testid="results-list"]/div/div/div[1]/ul/li[1]/span',
+                    )
+                    assert_that(lang_list, "Language elements not match results count").is_length(results_count)
+                with allure.step(f"Check all elements match filter '{language}'"):
+                    for lang in lang_list:
+                        assert_that(lang.inner_text(), "Repo language value").contains(language)

@@ -5,3 +5,4 @@ icecream
 pylint
 pytest
 pytest-playwright
+pytest-xdist
