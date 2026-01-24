@@ -1,17 +1,5 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
 "
-        Github repo search with filtering: handling <select> element.
-
-        Scenario:
-        - Open page `https://github.com/search/advanced`.
-        - Fill filters:
-            - Select `Written in this language` filter, select value option.
-            - Select `With this many stars` filter, fill some value.
-            - Select `With this file name` filter, fill some value.
-        - Click `Search` button.
-        - Verify results match filter criteria.
-        ","32373","Github repo search with filtering: handling <select>","tests.viola_course","2026-01-24","broken","2026-01-24","TestSelectOption","test_select_option","",""
-"
         Sample test description.
 
         Scenario:
@@ -29,7 +17,7 @@
             - Select `With this file name` filter, fill some value.
         - Click `Search` button.
         - Verify results match filter criteria.
-        ","32433","Github repo search with filtering: handling <select>","tests.viola_course","2026-01-24","broken","2026-01-24","TestSelectOption","test_select_option","",""
+        ","5042","Github repo search with filtering: handling <select>","tests.viola_course","2026-01-24","passed","2026-01-24","TestSelectOption","test_select_option","",""
 "
         Github repo search with filtering: handling <select> element.
 
@@ -41,4 +29,16 @@
             - Select `With this file name` filter, fill some value.
         - Click `Search` button.
         - Verify results match filter criteria.
-        ","32303","Github repo search with filtering: handling <select>","tests.viola_course","2026-01-24","broken","2026-01-24","TestSelectOption","test_select_option","",""
+        ","4759","Github repo search with filtering: handling <select>","tests.viola_course","2026-01-24","passed","2026-01-24","TestSelectOption","test_select_option","",""
+"
+        Github repo search with filtering: handling <select> element.
+
+        Scenario:
+        - Open page `https://github.com/search/advanced`.
+        - Fill filters:
+            - Select `Written in this language` filter, select value option.
+            - Select `With this many stars` filter, fill some value.
+            - Select `With this file name` filter, fill some value.
+        - Click `Search` button.
+        - Verify results match filter criteria.
+        ","4840","Github repo search with filtering: handling <select>","tests.viola_course","2026-01-24","passed","2026-01-24","TestSelectOption","test_select_option","",""
